@@ -19,7 +19,8 @@ const companySchema = mongoose.Schema({
     }
 },
 { 
-    timestamps: true 
+    timestamps: true ,
+    versionKey: false
 })
 
 module.exports = mongoose.model('Company', companySchema);

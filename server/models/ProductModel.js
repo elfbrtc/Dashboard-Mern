@@ -10,7 +10,7 @@ const productSchema = mongoose.Schema({
         required: [true, 'Please enter a product category'],
     },
     productAmount: {
-        type: String,
+        type: Number,
         required: [true, 'Please enter a product amount'],
     },
     productAmountUnit: {
@@ -24,7 +24,8 @@ const productSchema = mongoose.Schema({
     }
 },
 { 
-    timestamps: true 
+    timestamps: true,
+    versionKey: false
 })
 
 module.exports = mongoose.model('Product', productSchema);
