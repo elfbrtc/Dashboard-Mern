@@ -9,7 +9,7 @@ import './App.css';
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { AuthProvider, useAuthContext } from "./contexts/AuthContext/AuthContex";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/DashboardPage";
 import { Switch } from "antd";
 import CompanyPage from "./pages/CompanyPage";
 import ProductPage from "./pages/ProductPage";

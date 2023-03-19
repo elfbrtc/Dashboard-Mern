@@ -9,7 +9,6 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import ContentPage from '../Content/Content';
 import { useNavigate } from 'react-router';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -31,7 +30,7 @@ function getItem(
 }
 
 const Sidebar: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();

@@ -11,3 +11,13 @@ export type RegisterResponseType = {
 
 }
 
+export type UserResponseType = {
+    _id: string,
+    username : string,
+    password : string,
+    createdAt: string,
+    updatedAt: string
+}
+
+
+

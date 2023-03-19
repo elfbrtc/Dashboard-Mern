@@ -65,7 +65,14 @@ const generateToken = (id) => {
         expiresIn: '30d'
     })
 }
+
+const getAllUsers = asyncHandler (async (req, res) => {
+    const users = await User.find();
+    res.json(users);
+})
+
 module.exports = {
     registerUser,
     loginUser,
+    getAllUsers
 };

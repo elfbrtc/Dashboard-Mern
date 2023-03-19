@@ -1,1 +1,1 @@
-export * as auth from './methods'
+export * as company from './methods'

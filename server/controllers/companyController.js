@@ -5,7 +5,7 @@ const Company = require('../models/CompanyModel.js');
 
 
 const getAllCompanies = asyncHandler (async (req, res) => {
-    const companies = await Company.find();
+    const companies = await Company.find().sort({ createdAt: -1 });
     res.json(companies);
 })
 
@@ -45,6 +45,8 @@ const updateCompany = asyncHandler (async (req, res) => {
     })
     res.status(200).json(updatedCompany);
 })
+
+
 
 
 module.exports = {

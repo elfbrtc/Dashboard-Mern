@@ -5,7 +5,7 @@ const Product = require('../models/ProductModel.js');
 
 
 const getAllProduct = asyncHandler (async (req, res) => {
-    const products = await Product.find();
+    const products = await Product.find().sort({ createdAt: -1 });
     res.json(products);
 })
 

@@ -8,3 +8,7 @@ export const login = async(payload: UserRequestPayload) => {
 export const register = async(payload: UserRequestPayload) => {
     return await service.post('api/users/register', payload)
 }
+
+export const getAllUsers = async() => {
+    return await service.get('api/users')
+}
