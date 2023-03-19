@@ -26,6 +26,7 @@ function App() {
       <BrowserRouter>
         <Sidebar/>
         <Routes>
+          <Route path="/" element={<Navigate to="/dashboard"/>}/>
           <Route path="dashboard" element={<HomePage/>}/>
           <Route path = "company" element={<CompanyPage/>}/>
           <Route path = "product" element={<ProductPage/>}/>

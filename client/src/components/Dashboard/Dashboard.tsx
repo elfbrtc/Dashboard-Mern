@@ -82,7 +82,7 @@ const Dashboard:FC = () => {
       padding:8 }}
       />} title={"Product"} value={productState.length}/>
       </Space>
-      <Space>
+      <Space  direction="vertical" style={{ }} >
         <DashboardTable data={companyState}/>
         <DashBoardChart data={productState}/>
       </Space>

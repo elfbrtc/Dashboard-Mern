@@ -13,7 +13,7 @@ const DashboardPage = () => {
 
 
   return (
-    <div style={{display:'flex', width:'100%', height:'100%' }} className=''>
+    <div style={{width:'100%', height:'100%' }}>
       <Dashboard/>
     </div>
   )

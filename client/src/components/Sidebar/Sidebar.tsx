@@ -10,6 +10,7 @@ import {
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { useNavigate } from 'react-router';
+import { useAuthContext } from '../../contexts/AuthContext/AuthContex';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -36,6 +37,7 @@ const Sidebar: React.FC = () => {
   } = theme.useToken();
 
   const navigate = useNavigate();
+  const {handleLogout} = useAuthContext();
 
   return (
     <Layout style={{ minHeight: '100vh',  background: 'white' }}>
@@ -48,7 +50,7 @@ const Sidebar: React.FC = () => {
         <img style={{width: 'auto', height:'100%', padding:'5px'}}src={logo}></img>
         </div>
         }
-        <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" items={[
+        <Menu theme="light" defaultSelectedKeys={['0']} mode="inline" items={[
           {
             key: '1',
             label: 'Dashboard',
@@ -71,7 +73,10 @@ const Sidebar: React.FC = () => {
             key: '4',
             label: 'Logout',
             icon: <LogoutOutlined />,
-            onClick: () => console.log('Logout')
+            onClick: () => {
+              handleLogout()
+              navigate('/')
+            }
           }
         ]} />
         
@@ -82,3 +87,4 @@ const Sidebar: React.FC = () => {
 
 
 export default Sidebar;
+

@@ -7,8 +7,8 @@ export const createCompany = async(payload: CompanyRequestPayload) =>
 export const getAllCompany = async() => 
     await service.get("api/company")
 
-export const updateCompany = async(payload: CompanyRequestPayload) =>
-    await service.put("api/company", payload)
+export const updateCompany = async(payload: CompanyResponsePayload) =>
+    await service.put(`api/company/${payload._id}`, payload)
 
 export const deleteCompany = async(id: string) =>
     await service.delete(`api/company/${id}`)

@@ -11,6 +11,8 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { DashboardChartProps } from './type';
 import { ProductResponseType } from '../../services/endpoints/product/types';
+import { Card } from 'antd';
+import { Styled } from './DashboardChart.styled';
 
     ChartJS.register(
     CategoryScale,
@@ -64,7 +66,13 @@ const DashBoardChart:FC<DashboardChartProps> = (props) => {
   };
   
   return (
-    <Bar options={options} data={productData} />
+    <Styled>
+      <Card style={{width:800, height:500}}>
+        <Bar options={options} data={productData} />
+      </Card>
+    </Styled>
+    
+    
   )
 }
 

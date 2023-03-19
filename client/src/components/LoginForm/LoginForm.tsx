@@ -71,12 +71,12 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
         </a>
       </Form.Item>
 
-      <Form.Item>
+      <div className="elfogn" style={{display:'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <Button onClick={handleSubmit} type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button>
-        Or <Link to="/register">register now!</Link> 
-      </Form.Item>
+        <Link to="/register">register now!</Link> 
+      </div>
     </Form>
     </Styled>
     
