@@ -1,4 +1,4 @@
-import service from "../instance";
+import service from "../../instance";
 import { ProductRequestPayload } from "./types";
 
 export const getAllProducts = async () => 

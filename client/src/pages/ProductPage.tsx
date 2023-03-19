@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProductPage = () => {
   return (
-    <div>ProductPage</div>
+    <div style={{display:'flex', width:'100%', height:'100%' }}>ProductPage</div>
   )
 }
 

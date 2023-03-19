@@ -1,4 +1,4 @@
-import service from "../instance";
+import service from "../../instance";
 import { CompanyRequestPayload, CompanyResponsePayload } from "./types";
 
 export const createCompany = async(payload: CompanyRequestPayload) => 

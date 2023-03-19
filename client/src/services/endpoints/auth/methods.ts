@@ -1,4 +1,4 @@
-import service from '../instance'
+import service from '../../instance'
 import { UserRequestPayload } from './types'
 
 export const login = async(payload: UserRequestPayload) => {

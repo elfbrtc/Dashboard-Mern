@@ -2,7 +2,7 @@ import React from 'react'
 
 const CompanyPage = () => {
   return (
-    <div>CompanyPage</div>
+    <div style={{display:'flex', width:'100%', height:'100%' }}>CompanyPage</div>
   )
 }
 

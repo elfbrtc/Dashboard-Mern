@@ -3,11 +3,22 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { Styled } from './LoginForm.styled';
 import '../../App.css'
+import { LoginFormProps } from './types';
+import { Link } from 'react-router-dom';
 
-const LoginForm: React.FC = () => {
+const LoginForm: React.FC<LoginFormProps> = (props) => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
+
+  const [formValues, setFormValues] = React.useState({
+    username: '',
+    password: ''
+  })
+
+  const handleSubmit = () => {
+    props.onLogin(formValues)
+  }
 
   return (
     <Styled>
@@ -21,7 +32,16 @@ const LoginForm: React.FC = () => {
         name="username"
         rules={[{ required: true, message: 'Please input your Username!' }]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} 
+        placeholder="Username" 
+        onChange={(e) => {
+          setFormValues({
+            ...formValues,
+            username: e.target.value
+          })}}
+          value={formValues.username}
+        />
+        
       </Form.Item>
       <Form.Item
         name="password"
@@ -31,6 +51,14 @@ const LoginForm: React.FC = () => {
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
           placeholder="Password"
+          onChange={(e) => {
+            setFormValues({
+              ...formValues,
+              password: e.target.value
+            })
+          }
+          }
+          value={formValues.password}
         />
       </Form.Item>
       <Form.Item>
@@ -44,10 +72,10 @@ const LoginForm: React.FC = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button onClick={handleSubmit} type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button>
-        Or <a href="">register now!</a>
+        Or <Link to="/register">register now!</Link> 
       </Form.Item>
     </Form>
     </Styled>

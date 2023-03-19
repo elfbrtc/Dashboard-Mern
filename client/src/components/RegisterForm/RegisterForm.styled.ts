@@ -4,7 +4,6 @@ export const Styled = styled.div`
 display: flex;
 justify-content: center;
 
-
 `
 
 

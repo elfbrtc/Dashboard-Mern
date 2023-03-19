@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import logo from '../assets/logo.png'
+import logo from '../../assets/logo.png'
 import logo2 from '../assets/logo2.png'
 import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
+  LogoutOutlined,
+  ShoppingOutlined,
+  BarChartOutlined,
+  BankOutlined
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import ContentPage from '../Content/Content';
+import { useNavigate } from 'react-router';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -29,23 +30,13 @@ function getItem(
   } as MenuItem;
 }
 
-const items: MenuItem[] = [
-  getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Option 2', '2', <DesktopOutlined />),
-  getItem('User', 'sub1', <UserOutlined />, [
-    getItem('Tom', '3'),
-    getItem('Bill', '4'),
-    getItem('Alex', '5'),
-  ]),
-  getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-  getItem('Files', '9', <FileOutlined />),
-];
-
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const navigate = useNavigate();
 
   return (
     <Layout style={{ minHeight: '100vh',  background: 'white' }}>
@@ -58,21 +49,34 @@ const Sidebar: React.FC = () => {
         <img style={{width: 'auto', height:'100%', padding:'5px'}}src={logo}></img>
         </div>
         }
-        <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" items={items} />
+        <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" items={[
+          {
+            key: '1',
+            label: 'Dashboard',
+            icon: <BarChartOutlined />,
+            onClick: () => {navigate('/dashboard')}
+          },
+          {
+            key: '2',
+            label: 'Company',
+            icon: <BankOutlined />,
+            onClick: () => {navigate('/company')}
+          },
+          {
+            key: '3',
+            label: 'Product',
+            icon: <ShoppingOutlined />,
+            onClick: () => {navigate('/product')}
+          },
+          {
+            key: '4',
+            label: 'Logout',
+            icon: <LogoutOutlined />,
+            onClick: () => console.log('Logout')
+          }
+        ]} />
+        
       </Sider>
-      <Layout className="site-layout">
-        <Header style={{ padding: 0, background: colorBgContainer }} />
-        <Content style={{ margin: '0 16px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          <div style={{ padding: 24, minHeight: 360, background: colorBgContainer }}>
-            Bill is a cat.
-          </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
-      </Layout>
     </Layout>
   );
 };
