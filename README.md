@@ -1,5 +1,5 @@
-# EteTechnology Assignment
-Full-Stack EteTechnology with Client Dashboard & Server.
+# Dashboard - MERN
+Full-Stack Dashboard with Client Dashboard & Server.
 
 ## 🖥️ Tech Stack
 **Frontend:**
